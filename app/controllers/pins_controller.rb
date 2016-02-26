@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, expect: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /pins
   # GET /pins.json
   def index
@@ -58,7 +58,7 @@ class PinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pin
-      @pin = Pin.find(params[:id])
+      @pin = Pin.find_by(id: params[:id])
     end
 
     def correct_user
