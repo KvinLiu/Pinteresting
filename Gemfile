@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 gem 'devise', '~> 3.5.6'
 gem 'paperclip'
+gem 'masonry-rails'
 
 group :development, :test do
   gem 'sqlite3'

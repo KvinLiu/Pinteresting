@@ -31,7 +31,7 @@ class PinsController < ApplicationController
     if @pin.save
       redirect_to @pin, notice: 'Pin was successfully created.'
     else
-      render :new
+      render action: 'new'
     end
 
   end
@@ -52,7 +52,6 @@ class PinsController < ApplicationController
   def destroy
     @pin.destroy
       redirect_to pins_url, notice: 'Pin was successfully destroyed.'
-      head :no_content
   end
 
   private
@@ -68,6 +67,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:description)
+      params.require(:pin).permit(:description, :images)
     end
 end
